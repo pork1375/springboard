@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <meta charset="UTF-8">
+    <title>로그인</title>
+</head>
+<body>
+
+아이디 <input type="text" id="userId" name="userId">
+비밀번호 <input type="text" id="password" name="password">
+<button type="button" onclick="login();">로그인</button>
+</body>
+</html>
+<script>
+
+    const login = () => {
+
+        const id = document.querySelector("#userId").value;
+        const pw = document.querySelector("#password").value;
+
+        const reqData = {
+            userId : id,
+            password : pw
+        }
+
+        $.ajax({
+            type: 'post',
+            url: '/user/login',
+            data: JSON.stringify(reqData),
+            dataType : "json",
+            contentType:"application/json",
+            success: function (resData) {
+                console.log(resData);
+                if (resData == 1) {
+                    location.href = '/';
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
+
+
+</script>
