@@ -25,4 +25,12 @@ public class UserController {
         return userService.selectOneUserLogin(userLoginRequest);
     }
 
+    /**
+     * 회원가입
+     * */
+    @GetMapping("/user-add")
+    public String userAdd() {
+        return "user/user";
+    }
+
 }

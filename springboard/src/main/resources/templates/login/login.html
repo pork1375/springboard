@@ -11,6 +11,8 @@
 아이디 <input type="text" id="userId" name="userId">
 비밀번호 <input type="text" id="password" name="password">
 <button type="button" onclick="login();">로그인</button>
+<br>
+<button type="button" onclick="location.href='/user/user-add'">회원가입</button>
 </body>
 </html>
 <script>
@@ -34,7 +36,7 @@
             success: function (resData) {
                 console.log(resData);
                 if (resData == 1) {
-                    location.href = '/';
+                    location.href = '/board';
                 }
             },
             error: function (err) {
