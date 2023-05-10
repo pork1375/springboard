@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>게시판 목록</title>
 </head>
 <body>
-<h1>aaaa</h1>
+<table border="1">
+    <th>제목</th>
+    <th>등록자</th>
+    <th>등록일</th>
+    <th>조회수</th>
+    <tr th:each="list : ${boardList}">
+        <td th:text="${list.getTitle()}"></td>
+        <td th:text="${list.getRegId()}"></td>
+        <td th:text="${list.getRegDate()}"></td>
+        <td th:text="${list.getViewCnt()}"></td>
+    </tr>
+</table>
 </body>
 </html>

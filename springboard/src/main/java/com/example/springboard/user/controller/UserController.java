@@ -1,5 +1,6 @@
 package com.example.springboard.user.controller;
 
+import com.example.springboard.user.dto.request.UserAddRequest;
 import com.example.springboard.user.dto.request.UserLoginRequest;
 import com.example.springboard.user.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -26,11 +27,20 @@ public class UserController {
     }
 
     /**
-     * 회원가입
+     * 회원가입 화면
      * */
     @GetMapping("/user-add")
     public String userAdd() {
         return "user/user";
+    }
+
+    /**
+     * 회원가입
+     * */
+    @PostMapping("/user-add")
+    @ResponseBody
+    public int insertUser(@RequestBody UserAddRequest userAddRequest) {
+        return userService.insertUser(userAddRequest);
     }
 
 }

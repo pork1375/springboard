@@ -7,9 +7,9 @@ import lombok.ToString;
 @Getter
 @ToString
 @RequiredArgsConstructor
-public class UserLoginRequest {
-
+public class UserAddRequest {
     private final String userId;
     private final String password;
+    private final String gender;
 
 }

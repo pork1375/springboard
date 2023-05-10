@@ -10,4 +10,17 @@
           and user_id = #{userId}
     </select>
 
+    <insert id="insertUser" parameterType="com.example.springboard.user.dto.request.UserAddRequest">
+        insert into happy.user
+        (
+            user_id,
+            user_password,
+            gender
+        ) values (
+            #{userId}
+            ,#{password}
+            ,#{gender}
+        )
+    </insert>
+
 </mapper>

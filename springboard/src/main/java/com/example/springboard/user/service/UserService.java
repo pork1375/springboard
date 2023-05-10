@@ -1,5 +1,6 @@
 package com.example.springboard.user.service;
 
+import com.example.springboard.user.dto.request.UserAddRequest;
 import com.example.springboard.user.dto.request.UserLoginRequest;
 import com.example.springboard.user.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
@@ -15,4 +16,7 @@ public class UserService {
         return userMapper.selectOneUserLogin(userLoginRequest);
     }
 
+    public int insertUser(UserAddRequest userAddRequest) {
+        return userMapper.insertUser(userAddRequest);
+    }
 }
