@@ -10,6 +10,7 @@
     <th>등록자</th>
     <th>등록일</th>
     <th>조회수</th>
+    <button type="button" onclick="location.href='write'">글쓰기</button>
     <tr th:each="list : ${boardList}">
         <td th:text="${list.getTitle()}"></td>
         <td th:text="${list.getRegId()}"></td>

@@ -12,4 +12,17 @@
         from happy.board
     </select>
 
+    <insert id="insertWrite" parameterType="com.example.springboard.board.dto.request.WriteAddRequest">
+        insert into happy.board
+        (
+            title,
+            reg_id,
+            content
+        ) values (
+            #{title}
+            ,#{regId}
+,           #{content}
+        )
+    </insert>
+
 </mapper>
