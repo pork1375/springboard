@@ -4,13 +4,31 @@
     <meta charset="UTF-8">
     <title>게시판 목록</title>
 </head>
+<style>
+    .layoutLeft {
+        width: 15%;
+        height: 800px;
+        float: left;
+    }
+    ul li a {
+        text-decoration: none;
+    }
+</style>
 <body>
+<div>
+<div class="layoutLeft">
+    <ul>
+        <li><a href="/board">게시판1</a></li>
+        <li>게시판2</li>
+    </ul>
+</div>
+<div class="layoutRight">
+    <h3>게시판1</h3>
 <table border="1">
     <th>제목</th>
     <th>등록자</th>
     <th>등록일</th>
     <th>조회수</th>
-    <button type="button" onclick="location.href='write'">글쓰기</button>
     <tr th:each="list : ${boardList}">
         <td th:text="${list.getTitle()}"></td>
         <td th:text="${list.getRegId()}"></td>
@@ -18,5 +36,8 @@
         <td th:text="${list.getViewCnt()}"></td>
     </tr>
 </table>
+    <button type="button" onclick="location.href='write'">글쓰기</button>
+</div>
+</div>
 </body>
 </html>

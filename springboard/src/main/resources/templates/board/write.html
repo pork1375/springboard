@@ -6,26 +6,24 @@
     <title>게시판 작성</title>
 </head>
 <body>
-    <th:block>
+    <div>
+        <h2>새 글 작성</h2>
         <div>
-            <h2>새 글 작성</h2>
-            <div>
-                <label for="title">제목</label><br>
-                <input title="글제목" type="text" name="title" id="title"/>
-            </div>
-            <br>
-            <div>
-                <label for="regId">작성자</label><br>
-                <input title="회원 이름" type="text" name="regId" id="regId"/>
-            </div>
-            <br>
-            <div class="content-box">
-                <label>내용</label><br>
-                <textarea class="글 내용" id="content" name="content" rows="10" cols="50"></textarea>
-            </div>
-            <button type="button" onclick="writeSave();">저장</button>
+            <label for="title">제목</label><br>
+            <input title="글제목" type="text" name="title" id="title"/>
         </div>
-    </th:block>
+        <br>
+        <div>
+            <label for="regId">작성자</label><br>
+            <input title="회원 이름" type="text" name="regId" id="regId"/>
+        </div>
+        <br>
+        <div class="content-box">
+            <label>내용</label><br>
+            <textarea class="글 내용" id="content" name="content" rows="10" cols="50"></textarea>
+        </div>
+        <button type="button" onclick="writeSave();">저장</button>
+    </div>
 </body>
 </html>
 
