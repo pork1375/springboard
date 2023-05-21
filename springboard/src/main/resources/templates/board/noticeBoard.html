@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시판 목록</title>
+</head>
+<style>
+  .layoutLeft {
+    width: 15%;
+    height: 800px;
+    float: left;
+  }
+  ul li a {
+    text-decoration: none;
+  }
+</style>
+<body>
+<div>
+  <div class="layoutLeft">
+    <ul>
+      <li><a href="/board">게시판1</a></li>
+      <li><a href="/noticeBoard">게시판2</a></li>
+    </ul>
+  </div>
+  <div class="layoutRight">
+    <h3>게시판2</h3>
+    <table border="1">
+      <th>제목</th>
+      <th>등록자</th>
+      <th>성별</th>
+      <th>등록일</th>
+      <th>조회수</th>
+      <tr th:each="list : ${noticeBoardList}">
+        <td th:text="${list.getNoticeTitle()}"></td>
+        <td th:text="${list.getNoticeRegId()}"></td>
+        <td th:text="${list.getNoticeGender()}"></td>
+        <td th:text="${list.getNoticeRegDate()}"></td>
+        <td th:text="${list.getNoticeViewCnt()}"></td>
+      </tr>
+    </table>
+    <button type="button" onclick="location.href='noticeWrite'">글쓰기</button>
+  </div>
+</div>
+</body>
+</html>

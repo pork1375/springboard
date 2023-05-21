@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.springboard.noticeBoard.mapper.NoticeBoardMapper">
+
+    <select id="noticeSelectBoardList" resultType="com.example.springboard.noticeBoard.dto.response.NoticeBoardResponse">
+        select
+            notice_title
+             ,notice_content
+             ,notice_reg_id
+             ,notice_gender
+             ,notice_reg_date
+             ,notice_view_cnt
+        from happy.notice_board
+    </select>
+
+    <insert id="noticeInsertWrite" parameterType="com.example.springboard.noticeBoard.dto.reauest.NoticeWriteAddRequest">
+        insert into happy.notice_board
+        (
+            notice_title,
+            notice_reg_id,
+            notice_gender,
+            notice_content
+        ) values (
+         #{noticeTitle}
+         ,#{noticeRegId}
+         ,#{noticeGender}
+         ,#{noticeContent}
+         )
+    </insert>
+
+</mapper>

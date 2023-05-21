@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>게시판 작성</title>
+</head>
+<body>
+<div>
+    <h2>새 글 작성</h2>
+    <div>
+        <label for="noticeTitle">제목</label><br>
+        <input title="글제목" type="text" name="noticeTitle" id="noticeTitle"/>
+    </div>
+    <br>
+    <div>
+        <label for="noticeRegId">작성자</label><br>
+        <input title="회원 이름" type="text" name="noticeRegId" id="noticeRegId"/>
+    </div>
+    <br>
+    <div class="noticeGender">
+        <select name="noticeGender" id="noticeGender">
+            <option value="">성별 선택</option>
+            <option name="gender" value="W">여자</option>
+            <option name="gender" value="M">남자</option>
+        </select>
+    </div>
+    <div class="content-box">
+        <label>내용</label><br>
+        <textarea class="글 내용" id="noticeContent" name="noticeContent" rows="10" cols="50"></textarea>
+    </div>
+    <button type="button" onclick="noticeWriteSave();">저장</button>
+</div>
+</body>
+</html>
+
+<script>
+
+
+    const noticeWriteSave = () => {
+
+        const noticeTitle = document.querySelector("#noticeTitle").value;
+        const noticeRegId = document.querySelector("#noticeRegId").value;
+        const noticeGender = document.querySelector("#noticeGender").value;
+        const noticeContent = document.querySelector("#noticeContent").value;
+
+        const reqData = {
+            noticeTitle : noticeTitle,
+            noticeRegId : noticeRegId,
+            noticeGender : noticeGender,
+            noticeContent : noticeContent
+        }
+
+        $.ajax({
+            type: 'post',
+            url: '/noticeWrite',
+            data: JSON.stringify(reqData),
+            dataType : "json",
+            contentType:"application/json",
+            success: function (resData) {
+                console.log(resData);
+                if (resData == 1) {
+                    alert("게시글 등록을 완료했습니다. \n 게시판 목록으로 이동합니다.");
+                    location.href = '/noticeBoard';
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        });
+    }
+
+</script>

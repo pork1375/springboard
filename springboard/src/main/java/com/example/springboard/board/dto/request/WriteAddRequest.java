@@ -8,6 +8,7 @@ import lombok.ToString;
 @ToString
 @RequiredArgsConstructor
 public class WriteAddRequest {
+
     private final String title;
     private final String regId;
     private final String content;
